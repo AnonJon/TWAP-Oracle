@@ -11,3 +11,6 @@ script-factory-local:
 	forge script script/UniswapV2TWAPFactory.s.sol:UniswapV2TWAPFactoryScript \
 	--fork-url http://localhost:8545 --verifier-url http://localhost:3000/api/verify --etherscan-api-key blacksmith \
 	--broadcast --verify -vvvv
+
+clean:
+	remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
