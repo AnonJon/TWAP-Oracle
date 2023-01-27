@@ -1,0 +1,13 @@
+{
+  "solidity.packageDefaultDependenciesContractsDirectory": "contracts",
+  "solidity.packageDefaultDependenciesDirectory": "lib",
+  "solidity.compileUsingRemoteVersion": "v0.8.17+commit.8df45f5f",
+  "solidity.remappings": [
+    "forge-std/=lib/forge-std/src/",
+    "@openzeppelin/=lib/openzeppelin-contracts/",
+    "@fxportal/=lib/contracts/",
+    "@openzeppelin-upgrades/=lib/openzeppelin-contracts-upgradeable/",
+    "@optimism=lib/optimism/packages/contracts/"
+  ],
+  "solidity.defaultCompiler": "remote"
+}

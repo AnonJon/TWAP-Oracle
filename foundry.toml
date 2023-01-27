@@ -1,6 +1,6 @@
 [profile.default]
-src = 'src'
+src = 'contracts'
 out = 'out'
 libs = ['lib']
-
+remappings = ['@openzeppelin=lib/openzeppelin-contracts', '@chainlink=lib/chainlink', '@uniswapV2Core=lib/']
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

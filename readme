@@ -1,0 +1,24 @@
+### Anvil (Local Node)
+
+Open another terminal
+
+```bash
+anvil
+```
+
+### Contracts
+
+```bash
+make deploy
+```
+
+### UI
+
+Open a new terminal
+
+```bash
+cd ui && yarn
+yarn dev
+```
+
+Navigate to [http://localhost:3000](http://localhost:3000), click the connect wallet button, and choose Blacksmith.
