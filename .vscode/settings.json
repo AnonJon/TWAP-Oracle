@@ -5,8 +5,11 @@
   "solidity.remappings": [
     "forge-std/=lib/forge-std/src/",
     "@openzeppelin/=lib/openzeppelin-contracts/",
-    "@openzeppelin-upgrades/=lib/openzeppelin-contracts-upgradeable/",
-    "@optimism=lib/optimism/packages/contracts/"
+    "@openzeppelin-upgrades/=lib/openzeppelin-contracts-upgradeable/contracts/",
+    "@chainlink=lib/chainlink/",
+    "@uniswapV2Core=lib/v2-core/",
+    "@uniswapV2Periphery=lib/v2-periphery/",
+    "@uniswapLib=lib/uniswap-lib/contracts/"
   ],
   "solidity.defaultCompiler": "remote"
 }

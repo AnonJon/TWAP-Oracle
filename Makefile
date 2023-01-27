@@ -2,7 +2,7 @@
 
 install:
 	forge install Openzeppelin/openzeppelin-contracts Openzeppelin/openzeppelin-contracts-upgradeable \
-	foundry-rs/forge-std smartcontractkit/chainlink Uniswap/v2-core Uniswap/v2-periphery
+	foundry-rs/forge-std smartcontractkit/chainlink Uniswap/v2-core Uniswap/v2-periphery Uniswap/solidity-lib
 
 script-local:
 	forge script script/GovernanceAutomator.s.sol:GovernanceAutomatorScript \

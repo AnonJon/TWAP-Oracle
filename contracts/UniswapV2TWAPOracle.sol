@@ -6,8 +6,8 @@ import {IUniswapV2Pair} from "@uniswapV2Core/contracts/interfaces/IUniswapV2Pair
 import {IUniswapV2Factory} from "@uniswapV2Core/contracts/interfaces/IUniswapV2Factory.sol";
 import {UniswapV2OracleLibrary} from "@uniswapV2Periphery/contracts/libraries/UniswapV2OracleLibrary.sol";
 import {FixedPoint} from "@uniswap/lib/contracts/libraries/FixedPoint.sol";
-import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import {PausableUpgradeable} from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import {OwnableUpgradeable} from "@openzeppelin-upgrades/access/OwnableUpgradeable.sol";
+import {PausableUpgradeable} from "@openzeppelin-upgrades/security/PausableUpgradeable.sol";
 import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol";
 import {IUniswapV2TWAPOracle} from "./interfaces/IUniswapV2TWAPOracle.sol";
 
