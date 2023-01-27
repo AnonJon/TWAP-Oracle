@@ -2,5 +2,5 @@
 src = 'contracts'
 out = 'out'
 libs = ['lib']
-remappings = ['@openzeppelin=lib/openzeppelin-contracts', '@chainlink=lib/chainlink', '@uniswapV2Core=lib/']
+remappings = ['@openzeppelin=lib/openzeppelin-contracts', '@openzeppelin-upgrades=lib/openzeppelin-contracts-upgradeable', '@chainlink=lib/chainlink', '@uniswapV2Core=lib/v2-core', '@uniswapV2Periphery=lib/v2-periphery']
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config

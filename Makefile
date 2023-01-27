@@ -1,7 +1,8 @@
 -include .env
 
 install:
-	forge install Openzeppelin/openzeppelin-contracts foundry-rs/forge-std smartcontractkit/chainlink Uniswap/v2-core
+	forge install Openzeppelin/openzeppelin-contracts Openzeppelin/openzeppelin-contracts-upgradeable \
+	foundry-rs/forge-std smartcontractkit/chainlink Uniswap/v2-core Uniswap/v2-periphery
 
 script-local:
 	forge script script/GovernanceAutomator.s.sol:GovernanceAutomatorScript \
