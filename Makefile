@@ -4,7 +4,10 @@ install:
 	forge install Openzeppelin/openzeppelin-contracts Openzeppelin/openzeppelin-contracts-upgradeable \
 	foundry-rs/forge-std smartcontractkit/chainlink Uniswap/v2-core Uniswap/v2-periphery Uniswap/solidity-lib
 
-script-local:
-	forge script script/GovernanceAutomator.s.sol:GovernanceAutomatorScript \
+run-node:
+	anvil --fork-url ${MAINNET_RPC_URL}
+
+script-factory-local:
+	forge script script/UniswapV2TWAPFactory.s.sol:UniswapV2TWAPFactoryScript \
 	--fork-url http://localhost:8545 --verifier-url http://localhost:3000/api/verify --etherscan-api-key blacksmith \
 	--broadcast --verify -vvvv
