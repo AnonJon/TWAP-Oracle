@@ -2,7 +2,7 @@
 
 install:
 	forge install Openzeppelin/openzeppelin-contracts Openzeppelin/openzeppelin-contracts-upgradeable \
-	foundry-rs/forge-std smartcontractkit/chainlink Uniswap/v2-core Uniswap/v2-periphery Uniswap/solidity-lib
+	foundry-rs/forge-std smartcontractkit/chainlink uniswap/v2-core=Uniswap/v2-core uniswap/v2-periphery=Uniswap/v2-periphery uniswap/lib=Uniswap/solidity-lib
 
 run-node:
 	anvil --fork-url ${MAINNET_RPC_URL}
