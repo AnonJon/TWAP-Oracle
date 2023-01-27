@@ -14,3 +14,7 @@
 	path = lib/chainlink
 	url = https://github.com/smartcontractkit/chainlink
 	branch = v1.11.0
+[submodule "lib/uniswap/v2-core"]
+	path = lib/uniswap/v2-core
+	url = https://github.com/Uniswap/v2-core
+	branch = v1.0.1
