@@ -21,3 +21,7 @@
 	path = lib/openzeppelin-contracts-upgradeable
 	url = https://github.com/Openzeppelin/openzeppelin-contracts-upgradeable
 	branch = v4.8.1
+[submodule "lib/solidity-lib"]
+	path = lib/solidity-lib
+	url = https://github.com/Uniswap/solidity-lib
+	branch = v2.1.0
