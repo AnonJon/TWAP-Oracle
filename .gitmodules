@@ -21,3 +21,7 @@
 [submodule "lib/uniswap/v2-periphery"]
 	path = lib/uniswap/v2-periphery
 	url = https://github.com/Uniswap/v2-periphery
+[submodule "lib/uniswap/lib"]
+	path = lib/uniswap/lib
+	url = https://github.com/Uniswap/solidity-lib
+	branch = v2.1.0
