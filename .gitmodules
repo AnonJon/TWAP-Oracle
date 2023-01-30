@@ -25,3 +25,6 @@
 	path = lib/uniswap/lib
 	url = https://github.com/Uniswap/solidity-lib
 	branch = v2.1.0
+[submodule "client"]
+	path = client
+	url = https://github.com/jongregis/blacksmith.git
