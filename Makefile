@@ -9,7 +9,7 @@ run-node:
 
 script-factory-local:
 	forge script script/UniswapV2TWAPFactory.s.sol:UniswapV2TWAPFactoryScript \
-	--fork-url http://localhost:8545 --verifier-url http://localhost:3000/api/verify --etherscan-api-key blacksmith \
+	--fork-url http://localhost:8545 --verifier-url http://localhost:3000/api/verify --etherscan-api-key linkpool \
 	--broadcast --verify -vvvv
 
 clean:
