@@ -2,10 +2,10 @@
 pragma solidity >=0.8.9;
 
 import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
-import {IUniswapV2Pair} from "@uniswapV2Core/contracts/interfaces/IUniswapV2Pair.sol";
-import {IUniswapV2Factory} from "@uniswapV2Core/contracts/interfaces/IUniswapV2Factory.sol";
-import {UniswapV2OracleLibrary} from "@uniswapV2Periphery/contracts/libraries/UniswapV2OracleLibrary.sol";
-import {FixedPoint} from "@uniswapLib/contracts/libraries/FixedPoint.sol";
+import {IUniswapV2Pair} from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol";
+import {IUniswapV2Factory} from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
+import {UniswapV2OracleLibrary} from "./lib/UniswapV2OracleLibrary.sol";
+import {FixedPoint} from "./lib/FixedPoint.sol";
 import {OwnableUpgradeable} from "@openzeppelin-upgrades/access/OwnableUpgradeable.sol";
 import {PausableUpgradeable} from "@openzeppelin-upgrades/security/PausableUpgradeable.sol";
 import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol";

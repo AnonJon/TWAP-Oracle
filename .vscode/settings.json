@@ -7,9 +7,7 @@
     "@openzeppelin/=lib/openzeppelin-contracts/",
     "@openzeppelin-upgrades/=lib/openzeppelin-contracts-upgradeable/contracts/",
     "@chainlink=lib/chainlink/",
-    "@uniswapV2Core=lib/v2-core/",
-    "@uniswapV2Periphery=lib/v2-periphery/",
-    "@uniswapLib=lib/solidity-lib/"
+    "@uniswap=lib/uniswap/"
   ],
   "solidity.defaultCompiler": "remote"
 }

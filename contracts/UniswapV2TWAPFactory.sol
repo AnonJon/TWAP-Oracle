@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: MIT
-pragma solidity <=0.8.17;
+pragma solidity >=0.8.9;
 
 import {UniswapV2TWAPOracle} from "./UniswapV2TWAPOracle.sol";
 import {IUniswapV2TWAPFactory} from "./interfaces/IUniswapV2TWAPFactory.sol";
