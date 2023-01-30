@@ -51,3 +51,11 @@ yarn dev
 ```
 
 Navigate to [http://localhost:3000](http://localhost:3000), click the connect wallet button, and choose Blacksmith.
+
+### Docs
+
+To generate and view contract documentation in your browser.
+
+```bash
+make run-doc-server
+```
