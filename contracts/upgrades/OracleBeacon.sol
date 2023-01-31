@@ -8,10 +8,9 @@ contract OracleBeacon is Ownable {
     UpgradeableBeacon beacon;
     string currentVersion;
 
-    constructor(address initBlueprint, address owner, string memory version) {
+    constructor(address initBlueprint, string memory version) {
         beacon = new UpgradeableBeacon(initBlueprint);
         currentVersion = version;
-        transferOwnership(owner);
     }
 
     function update(address newBlueprint, string calldata updatedVersion) public onlyOwner {

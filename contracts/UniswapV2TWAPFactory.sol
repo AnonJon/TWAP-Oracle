@@ -39,8 +39,8 @@ contract UniswapV2TWAPFactory is IUniswapV2TWAPFactory, Ownable {
         _;
     }
 
-    constructor(address bluePrint, address owner, string memory version) {
-        beacon = new OracleBeacon(bluePrint, owner, version);
+    constructor(address bluePrint, string memory version) {
+        beacon = new OracleBeacon(bluePrint, version);
     }
 
     /**

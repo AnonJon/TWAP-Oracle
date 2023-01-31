@@ -99,7 +99,7 @@ contract UniswapV2TWAPOracleTest is Test {
         oracle.deleteJob(2);
     }
 
-    function testRevert_queryPrice_QueryPriceWithZeroValue() public {
+    function testForkRevert_queryPrice_QueryPriceWithZeroValue() public {
         vm.startPrank(admin);
         oracle = new UniswapV2TWAPOracle();
         oracle.initialize(uniswapV2Factory, admin);
