@@ -35,12 +35,6 @@ Open another terminal
 make run-node
 ```
 
-### Contracts
-
-```bash
-make script-factory-local
-```
-
 ### UI
 
 Open a new terminal
@@ -48,6 +42,12 @@ Open a new terminal
 ```bash
 cd ui && yarn
 yarn dev
+```
+
+### Contracts
+
+```bash
+make script-factory-local
 ```
 
 Navigate to [http://localhost:3000](http://localhost:3000), click the connect wallet button, and choose Blacksmith.
