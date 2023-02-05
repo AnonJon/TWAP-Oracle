@@ -10,6 +10,7 @@ import {OwnableUpgradeable} from "@openzeppelin-upgrades/access/OwnableUpgradeab
 import {PausableUpgradeable} from "@openzeppelin-upgrades/security/PausableUpgradeable.sol";
 import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol";
 import {IUniswapV2TWAPOracle} from "./interfaces/IUniswapV2TWAPOracle.sol";
+import {IUniswapV2TWAPFactory} from "./interfaces/IUniswapV2TWAPFactory.sol";
 
 contract UniswapV2TWAPOracle is
     IUniswapV2TWAPOracle,
@@ -20,16 +21,15 @@ contract UniswapV2TWAPOracle is
     using EnumerableSet for EnumerableSet.UintSet;
     using FixedPoint for *;
 
-    string public version = "v0.0.1";
-
     IUniswapV2Factory public uniswapFactory;
+    IUniswapV2TWAPFactory public twapFactory;
     /// @notice jobID => Observation[]
     mapping(uint256 => Observation[]) observations;
     /// @notice jobID => Pair
     mapping(uint256 => Pair) pairs;
     mapping(uint256 => Job) private jobs;
     EnumerableSet.UintSet private activeJobIDs;
-    uint256 private nextJobID = 1;
+    uint256 public nextJobID;
     address public keeperRegistryAddress;
 
     struct Pair {
@@ -59,8 +59,12 @@ contract UniswapV2TWAPOracle is
      * @notice Initialize a UniswapV2TWAPAutomation contract
      * @param factory The UniswapV2Factory address
      * @param keeperAddress The address of the KeeperRegistry contract
+     * @param owner The owner of the contract
      */
-    function initialize(address factory, address keeperAddress) public initializer {
+    function initialize(address factory, address keeperAddress, address owner, address twapFactoryAddress)
+        public
+        initializer
+    {
         if (factory == address(0)) {
             revert ZeroAddress();
         }
@@ -68,6 +72,9 @@ contract UniswapV2TWAPOracle is
         __Pausable_init();
         setKeeperRegistryAddress(keeperAddress);
         uniswapFactory = IUniswapV2Factory(factory);
+        twapFactory = IUniswapV2TWAPFactory(twapFactoryAddress);
+        transferOwnership(owner);
+        nextJobID = 1;
     }
 
     /**
@@ -267,6 +274,10 @@ contract UniswapV2TWAPOracle is
 
     function getJobById(uint256 jobID) external view returns (Job memory) {
         return jobs[jobID];
+    }
+
+    function getVersion() external view returns (string memory) {
+        return twapFactory.getCurrentVersion();
     }
 
     /**

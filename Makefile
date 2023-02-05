@@ -15,6 +15,9 @@ test-contracts-all:
 test-contracts-offline:
 	forge test --no-match-test testFork -vvvv
 
+test-contracts-online:
+	forge test --match-test testFork -vvvv
+
 
 # scripts
 script-factory-local:

@@ -48,12 +48,19 @@ contract UniswapV2TWAPFactory is IUniswapV2TWAPFactory, Ownable {
      * @param admin The address of who will own the contract.
      * @param factory The address of the UniswapV2Factory contract.
      * @param keeperAddress The address of the keeper registry contract.
+     * @return The address of the new instance.
      */
-    function createTWAPOracle(address admin, address factory, address keeperAddress) external {
+    function createTWAPOracle(address admin, address factory, address keeperAddress)
+        external
+        hasAnInstance(admin)
+        returns (address)
+    {
         BeaconProxy proxy = new BeaconProxy(address(beacon), abi.encodeCall(
                 IUniswapV2TWAPOracle.initialize,
                 (factory,
-                keeperAddress)
+                keeperAddress,
+                admin,
+                address(this))
             ));
 
         Instance storage newTenant = instances[admin];
@@ -64,6 +71,8 @@ contract UniswapV2TWAPFactory is IUniswapV2TWAPFactory, Ownable {
         instanceCounter.increment();
 
         emit InstanceCreated(admin, address(proxy));
+
+        return address(proxy);
     }
 
     /**
@@ -79,11 +88,11 @@ contract UniswapV2TWAPFactory is IUniswapV2TWAPFactory, Ownable {
      * @notice Returns the address of an instance.
      * @param instanceOwner The address of the contract owner.
      */
-    function getInstance(address instanceOwner) external view returns (BeaconProxy) {
+    function getInstance(address instanceOwner) external view returns (address) {
         if (!isInstance[instanceOwner]) {
             revert InstanceDoesNotExist();
         }
-        return instances[instanceOwner].proxy;
+        return address(instances[instanceOwner].proxy);
     }
 
     /**

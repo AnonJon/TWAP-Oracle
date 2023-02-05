@@ -10,13 +10,19 @@ contract UniswapV2TWAPFactoryTest is Test {
     UniswapV2TWAPFactory factory;
     address uniswapV2Factory;
     address admin;
+    address token0;
+    address token1;
+    uint256 mainnetFork;
 
     event InstanceCreated(address admin, address proxy);
 
     error InstanceDoesNotExist();
 
     function setUp() public {
+        mainnetFork = vm.createSelectFork(vm.rpcUrl("mainnet"));
         uniswapV2Factory = 0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f;
+        token0 = 0x6B175474E89094C44Da98b954EedeAC495271d0F; // DAI
+        token1 = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2; // WETH
         admin = makeAddr("admin");
         vm.startPrank(admin);
         oracle = new UniswapV2TWAPOracle();
@@ -48,5 +54,30 @@ contract UniswapV2TWAPFactoryTest is Test {
         UniswapV2TWAPOracle newOracle = new UniswapV2TWAPOracle();
         factory.updateBeaconInstance(address(newOracle), "v.0.0.2");
         assertEq(factory.getImplementation(), address(newOracle));
+    }
+
+    function test_proxy_RevertIfNotOwner() public {
+        address random = makeAddr("random");
+        vm.prank(admin);
+        factory.createTWAPOracle(admin, uniswapV2Factory, admin);
+        UniswapV2TWAPOracle p1 = UniswapV2TWAPOracle(factory.getInstance(admin));
+        vm.prank(random);
+        vm.expectRevert();
+        p1.deleteJob(1);
+    }
+
+    function testFork_proxy_StateStaysAfterUpdate() public {
+        vm.startPrank(admin);
+        factory.createTWAPOracle(admin, uniswapV2Factory, admin);
+        UniswapV2TWAPOracle p1 = UniswapV2TWAPOracle(factory.getInstance(admin));
+        p1.createJob(token1, token0, 86400, 2);
+        assertEq(p1.getVersion(), "v0.0.1");
+
+        UniswapV2TWAPOracle newOracle = new UniswapV2TWAPOracle();
+        factory.updateBeaconInstance(address(newOracle), "v.0.0.2");
+        assertEq(p1.getVersion(), "v.0.0.2");
+
+        uint256[] memory jobs = p1.getActiveJobIDs();
+        assertEq(jobs[0], 1);
     }
 }

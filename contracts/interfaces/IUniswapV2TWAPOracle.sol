@@ -38,5 +38,5 @@ interface IUniswapV2TWAPOracle {
     function setKeeperRegistryAddress(address keeperAddress) external;
     function pause() external;
     function unpause() external;
-    function initialize(address factory, address keeperAddress) external;
+    function initialize(address factory, address keeperAddress, address owner, address twapFactory) external;
 }
