@@ -59,8 +59,7 @@ contract UniswapV2TWAPFactory is IUniswapV2TWAPFactory, Ownable {
                 IUniswapV2TWAPOracle.initialize,
                 (factory,
                 keeperAddress,
-                admin,
-                address(this))
+                admin)
             ));
 
         Instance storage newTenant = instances[admin];

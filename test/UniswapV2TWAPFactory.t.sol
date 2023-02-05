@@ -4,9 +4,11 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "../contracts/UniswapV2TWAPOracle.sol";
 import "../contracts/UniswapV2TWAPFactory.sol";
+import "../contracts/Mock/MockUniswapV2TWAPOracle.sol";
 
 contract UniswapV2TWAPFactoryTest is Test {
     UniswapV2TWAPOracle oracle;
+    MockUniswapV2TWAPOracle mockOracle;
     UniswapV2TWAPFactory factory;
     address uniswapV2Factory;
     address admin;
@@ -73,9 +75,9 @@ contract UniswapV2TWAPFactoryTest is Test {
         p1.createJob(token1, token0, 86400, 2);
         assertEq(p1.getVersion(), "v0.0.1");
 
-        UniswapV2TWAPOracle newOracle = new UniswapV2TWAPOracle();
-        factory.updateBeaconInstance(address(newOracle), "v.0.0.2");
-        assertEq(p1.getVersion(), "v.0.0.2");
+        MockUniswapV2TWAPOracle newOracle = new MockUniswapV2TWAPOracle();
+        factory.updateBeaconInstance(address(newOracle), "v0.0.2");
+        assertEq(p1.getVersion(), "v0.0.2");
 
         uint256[] memory jobs = p1.getActiveJobIDs();
         assertEq(jobs[0], 1);

@@ -4,15 +4,15 @@ pragma solidity >=0.8.9;
 import {EnumerableSet} from "@openzeppelin/contracts/utils/structs/EnumerableSet.sol";
 import {IUniswapV2Pair} from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol";
 import {IUniswapV2Factory} from "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
-import {UniswapV2OracleLibrary} from "./lib/UniswapV2OracleLibrary.sol";
-import {FixedPoint} from "./lib/FixedPoint.sol";
+import {UniswapV2OracleLibrary} from "../lib/UniswapV2OracleLibrary.sol";
+import {FixedPoint} from "../lib/FixedPoint.sol";
 import {OwnableUpgradeable} from "@openzeppelin-upgrades/access/OwnableUpgradeable.sol";
 import {PausableUpgradeable} from "@openzeppelin-upgrades/security/PausableUpgradeable.sol";
 import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol";
-import {IUniswapV2TWAPOracle} from "./interfaces/IUniswapV2TWAPOracle.sol";
-import {IUniswapV2TWAPFactory} from "./interfaces/IUniswapV2TWAPFactory.sol";
+import {IUniswapV2TWAPOracle} from "../interfaces/IUniswapV2TWAPOracle.sol";
+import {IUniswapV2TWAPFactory} from "../interfaces/IUniswapV2TWAPFactory.sol";
 
-contract UniswapV2TWAPOracle is
+contract MockUniswapV2TWAPOracle is
     IUniswapV2TWAPOracle,
     AutomationCompatibleInterface,
     OwnableUpgradeable,
@@ -272,7 +272,7 @@ contract UniswapV2TWAPOracle is
     }
 
     function getVersion() external pure returns (string memory) {
-        return "v0.0.1";
+        return "v0.0.2";
     }
 
     /**
