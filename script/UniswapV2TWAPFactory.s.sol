@@ -17,7 +17,7 @@ contract UniswapV2TWAPFactoryScript is Script {
         vm.startBroadcast(deployerPrivateKey);
         blueprint = new UniswapV2TWAPOracle();
 
-        factory = new UniswapV2TWAPFactory(address(blueprint), "1.0.0");
+        factory = new UniswapV2TWAPFactory(address(blueprint), "v0.0.1");
 
         vm.stopBroadcast();
     }
