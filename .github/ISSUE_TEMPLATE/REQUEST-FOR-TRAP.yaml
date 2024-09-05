@@ -1,0 +1,45 @@
+name: Request for Trap
+description: Request a Trap for your protocol.
+title: "[TRAP REQUEST]: "
+labels: ["trap", "request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for inquiring about Drosera Trap support! Lets get a little information about your protocol.
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: "ex. Telegram: @example"
+    validations:
+      required: false
+  - type: textarea
+    id: what-protocol
+    attributes:
+      label: Protocol Info
+      description: Tell us the name and little about your protocol.
+      placeholder: Describe your protocol here.
+    validations:
+      required: true
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Protocol Stage
+      description: What stage is your protocol in?
+      options:
+        - devnet
+        - testnet
+        - mainnet
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: what-blockchain
+    attributes:
+      label: Blockchain Info
+      description: What blockchain/s are you deployed on?
+      placeholder: Blockchain/s deployed on.
+    validations:
+      required: true
