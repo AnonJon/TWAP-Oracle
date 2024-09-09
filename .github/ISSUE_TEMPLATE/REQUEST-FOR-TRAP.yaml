@@ -69,8 +69,8 @@ body:
       label: On-chain Alerts
       description: Would on-chain alerts be helpful to signal that something has occurred?
       options:
-        - True
-        - False
+        - "True"
+        - "False"
     validations:
       required: true
   - type: textarea
