@@ -18,9 +18,68 @@ body:
   - type: textarea
     id: what-protocol
     attributes:
-      label: Protocol Info
-      description: Tell us the name and little about your protocol.
-      placeholder: Describe your protocol here.
+      label: Protocol Name
+      description: What is the name of your protocol.
+      placeholder: Name
+    validations:
+      required: true
+  - type: textarea
+    id: protocol-description
+    attributes:
+      label: Protocol Description
+      description: Give us a brief description of your protocol.
+      placeholder: Description
+    validations:
+      required: true
+  - type: textarea
+    id: protocol-website
+    attributes:
+      label: Protocol Website
+      description: What is the URL of your protocol?
+      placeholder: URL
+    validations:
+      required: true
+  - type: textarea
+    id: protocol-docs
+    attributes:
+      label: Protocol Documentation
+      description: Please provide a link to your protocol documentation.
+      placeholder: Protocol Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: protocol-actions
+    attributes:
+      label: Protocol Actions
+      description: What actions can be taken?
+      placeholder: Are there on-chain actions that would mitigate risk?
+    validations:
+      required: true
+  - type: textarea
+    id: protocol-scenarios
+    attributes:
+      label: Protocol Scenarios
+      description: What scenarios would be important to trigger actions and/or alerts?
+      placeholder: "Examples: Depegs, Upgrades, Access control changes, Proposals, Large volume, Activity spikes"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: onchain-alerts
+    attributes:
+      label: On-chain Alerts
+      description: Would on-chain alerts be helpful to signal that something has occurred?
+      options:
+        - label: "True"
+          required: false
+        - label: "False"
+          required: false
+  - type: textarea
+    id: protocol-data
+    attributes:
+      label: Data Analysis
+      description: "Is there state data that can provide insights into your protocol’s components or its users?"
+      placeholder: examples
     validations:
       required: true
   - type: dropdown
