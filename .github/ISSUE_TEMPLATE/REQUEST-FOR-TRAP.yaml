@@ -15,7 +15,7 @@ body:
       placeholder: "ex. Telegram: @example"
     validations:
       required: false
-  - type: textarea
+  - type: input
     id: what-protocol
     attributes:
       label: Protocol Name
@@ -31,7 +31,7 @@ body:
       placeholder: Description
     validations:
       required: true
-  - type: textarea
+  - type: input
     id: protocol-website
     attributes:
       label: Protocol Website
@@ -43,7 +43,7 @@ body:
     id: protocol-docs
     attributes:
       label: Protocol Documentation
-      description: Please provide a link to your protocol documentation.
+      description: Please provide a link/s to your protocol documentation.
       placeholder: Protocol Documentation
     validations:
       required: true
@@ -63,23 +63,22 @@ body:
       placeholder: "Examples: Depegs, Upgrades, Access control changes, Proposals, Large volume, Activity spikes"
     validations:
       required: true
-
-  - type: checkboxes
+  - type: dropdown
     id: onchain-alerts
     attributes:
       label: On-chain Alerts
       description: Would on-chain alerts be helpful to signal that something has occurred?
       options:
         - label: "True"
-          required: false
         - label: "False"
-          required: false
+    validations:
+      required: true
   - type: textarea
     id: protocol-data
     attributes:
       label: Data Analysis
       description: "Is there state data that can provide insights into your protocol’s components or its users?"
-      placeholder: examples
+      placeholder: Examples
     validations:
       required: true
   - type: dropdown
